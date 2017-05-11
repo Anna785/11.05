@@ -2,27 +2,22 @@ $(function(){
 	var status=false;
 	var update=function() {
 		if (status) {
-			$('#red').removeClass('red');	
-			$('#green').addClass('green');	
+			$('#red').attr('src', 'empty.png');	
+			$('#green').attr('src', 'green.png');	
 		} else {
-			$('#red').addClass('red');	
-			$('#green').removeClass('green');
+			$('#red').attr('src', 'red.png');	
+			$('#green').attr('src', 'empty.png');
 		}
-		$('#yellow').removeClass('yellow');	
 	};
-	function setYellow() {
-		$('#yellow').addClass('yellow');
-		$('#green').removeClass('green');
-	}	 
 	setInterval(function () {
 		status=!status;
 		update();
 	}, 5000);
 	setTimeout(function() {
 		setInterval(function() {
-			setYellow();		
+			$('#yellow').attr('src', 'yellow.png');		
 		}, 5000);
-		setYellow();	
+		$('#yellow').attr('src', 'yellow.png');	
 	},4500)
 	update();
 });
